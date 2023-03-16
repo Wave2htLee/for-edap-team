@@ -80,7 +80,7 @@ public class GenerateSql {
             if (!timeF.isEmpty()) {
                 StringBuilder sql = new StringBuilder("select ");
                 for (String col : timeF) {
-                    sql.append(String.format("sum((if %s is null,1,0)) as %s ,",col,col));
+                    sql.append(String.format("sum(if (%s is null),1,0)) as %s ,",col,col));
                 }
                 sql.append(String.format("'end' as endColumn from %s where true %s",tableName,condition));
                 System.out.println(sql);
@@ -96,7 +96,7 @@ public class GenerateSql {
             if (!notNF.isEmpty()) {
                 StringBuilder sql = new StringBuilder("select ");
                 for (String col : notNF) {
-                    sql.append(String.format("sum((if %s is null,1,0)) as %s ,",col,col));
+                    sql.append(String.format("sum(if (%s is null),1,0)) as %s ,",col,col));
                 }
                 sql.append(String.format("'end' as endColumn from %s where true %s",tableName,condition));
                 System.out.println(sql);
