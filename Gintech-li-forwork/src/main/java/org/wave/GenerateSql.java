@@ -9,6 +9,7 @@ public class GenerateSql {
         main1(args);
     }
     public static void main1(String[] args) {
+        "ss".trim()
         if (args.length < 1) {
             throw new RuntimeException (" Need a file which contain tableName,column, if need encrypt");
         } else
